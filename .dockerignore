@@ -1,0 +1,21 @@
+# Ignore git history
+.git
+.gitignore
+
+# Ignore node_modules
+node_modules
+
+# Ignore test coverage output
+coverage
+
+# Ignore build output (if generated locally)
+dist
+build
+
+# Ignore Docker files
+Dockerfile*
+docker-compose.yml
+
+# Ignore environment variables
+.env*
+

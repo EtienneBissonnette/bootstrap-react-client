@@ -1,0 +1,114 @@
+.toast-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding-right: calc(1rem + env(safe-area-inset-right));
+}
+
+.toast-container .toast {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 0.75rem 1rem;
+  border: 1px solid;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 250px;
+  max-width: 300px;
+  opacity: 0.95;
+  animation: toast-enter 0.4s ease-out forwards;
+}
+
+.toast-container .toast.toast-exit-active {
+  animation: toast-exit 0.4s ease-in forwards;
+}
+
+.toast-container .message {
+  margin-right: 1rem;
+  font-size: small;
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.toast-container .close-button {
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease; /* Keep transition */
+  flex-shrink: 0;
+}
+
+.toast-container .close-button:hover {
+  opacity: 1;
+}
+
+.toast-container .toast.success {
+  border-color: var(--success-border);
+}
+
+.toast-container .toast.error {
+  border-color: var(--destructive);
+}
+
+.toast-container .toast.info {
+  border-color: var(--primary);
+}
+
+.toast-container .toast.warning {
+  border-color: var(--warning-border);
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-exit {
+  from {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 450px) {
+  .toast-container {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
+  }
+
+  .toast-container .toast {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin-bottom: 0.5rem;
+  }
+}

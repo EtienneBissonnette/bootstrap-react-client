@@ -1,0 +1,30 @@
+# ---- Stage 1: Build & Test ----
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# Install ALL dependencies (including devDependencies needed for testing)
+RUN npm ci
+
+COPY . .
+
+# Lint, Test & Report code coverage
+ENV NODE_ENV=test
+RUN npm run lint
+RUN npm run test
+RUN npm run coverage
+
+# Build the application for production (only runs if tests passed)
+ENV NODE_ENV=production
+RUN npm run build
+
+
+# ---- Stage 2: Production ----
+FROM nginx:1.25-alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist .
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

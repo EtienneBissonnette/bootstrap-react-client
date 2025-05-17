@@ -1,0 +1,60 @@
+.cta {
+  padding: 4rem 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cta .button-primary {
+  background-color: white;
+  color: var(--primary);
+  border-color: white;
+}
+
+.cta .button-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cta .button-secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.cta .button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

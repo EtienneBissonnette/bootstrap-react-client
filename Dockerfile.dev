@@ -1,0 +1,18 @@
+FROM node:18-alpine AS dev
+
+WORKDIR /app
+
+ENV NODE_ENV=development
+
+COPY package*.json ./
+COPY vite.config.ts ./
+
+# Install dependencies
+RUN apk add --no-cache xdg-utils
+RUN npm install
+
+COPY . .
+
+EXPOSE 5173 51204
+
+CMD ["/bin/sh", "-c", "npm run dev-and-test"]
