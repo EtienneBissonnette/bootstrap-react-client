@@ -1,4 +1,4 @@
-# Testable Landing Page
+# Bootstrap React Client
 
 A bootstrap project using React v19, TypeScript, Vite v6, and Vitest v3. Includes foundational structure for a landing page, authentication, and a contact form, designed for testability and potential OAuth integration. Configured for Dockerization.
 
@@ -30,8 +30,8 @@ A bootstrap project using React v19, TypeScript, Vite v6, and Vitest v3. Include
 
 ## Getting Started
 
-1.  Clone the repository: `git clone <repository-url>`
-2.  Navigate into the project directory: `cd testable-landing-page`
+1.  Clone the repository: `git clone https://github.com/EtienneBissonnette/bootstrap-react-client.git`
+2.  Navigate into the project directory: `cd <project-directory>`
 3.  Install dependencies: `npm install`
 
 ## Available Scripts
